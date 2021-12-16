@@ -68,7 +68,7 @@ public class RecordController implements IDataBaseCrud<RecordEntity> , Serializa
 	  public List<RecordEntity> listLastTenRecord() {
 	    Session session = databaseConnectionHibernate();
 
-	    String hql = "select str from AlbumEntity as str  order by str.createDate desc";
+	    String hql = "select str from RecordEntity as str ";
 	    TypedQuery<RecordEntity> typedQuery = session.createQuery(hql, RecordEntity.class);
 	    typedQuery.setMaxResults(10);
 	    ArrayList<RecordEntity> arrayList = (ArrayList<RecordEntity>) typedQuery.getResultList();
@@ -81,7 +81,7 @@ public class RecordController implements IDataBaseCrud<RecordEntity> , Serializa
 	    Session session = databaseConnectionHibernate();
 
 	    String hql =
-	        "select str from AlbumEntity as str where str.discountRate>0 order by str.discountRate desc";
+	        "select str from RecordEntity as str ";
 	    TypedQuery<RecordEntity> typedQuery = session.createQuery(hql, RecordEntity.class);
 	    typedQuery.setMaxResults(15);
 	    ArrayList<RecordEntity> arrayList = (ArrayList<RecordEntity>) typedQuery.getResultList();
@@ -94,7 +94,7 @@ public class RecordController implements IDataBaseCrud<RecordEntity> , Serializa
 	    Session session = databaseConnectionHibernate();
 
 	    String hql =
-	        "select str from AlbumEntity as str where str.type like(lower(:tag)) order by str.createDate desc";
+	        "select str from RecordEntity as str ";
 	    TypedQuery<RecordEntity> typedQuery = session.createQuery(hql, RecordEntity.class);
 	    typedQuery.setParameter("tag", "%" + tag + "%");
 	    ArrayList<RecordEntity> arrayList = (ArrayList<RecordEntity>) typedQuery.getResultList();
@@ -106,7 +106,7 @@ public class RecordController implements IDataBaseCrud<RecordEntity> , Serializa
 	  public List<RecordEntity> listBySinger(SingerEntity singer) {
 	    Session session = databaseConnectionHibernate();
 
-	    String hql = "select str from AlbumEntity as str where str.singer=:tag";
+	    String hql = "select str from RecordEntity as str";
 	    TypedQuery<RecordEntity> typedQuery = session.createQuery(hql, RecordEntity.class);
 	    typedQuery.setParameter("tag", singer);
 	    ArrayList<RecordEntity> arrayList = (ArrayList<RecordEntity>) typedQuery.getResultList();
@@ -118,7 +118,7 @@ public class RecordController implements IDataBaseCrud<RecordEntity> , Serializa
 	  public List<RecordEntity> listBySalesCount() {
 	    Session session = databaseConnectionHibernate();
 
-	    String hql = "select str from AlbumEntity as str order by str.salesCount desc";
+	    String hql = "select str from RecordEntity as str";
 	    TypedQuery<RecordEntity> typedQuery = session.createQuery(hql, RecordEntity.class);
 	    ArrayList<RecordEntity> arrayList = (ArrayList<RecordEntity>) typedQuery.getResultList();
 

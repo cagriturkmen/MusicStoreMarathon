@@ -26,9 +26,10 @@ public class TestMain {
 		MainMethods mainMethods = new MainMethods();
 		//createUserandLogin();
 		//createSingerandRecord();
-		mainMethods.createOrder();
+		//mainMethods.createOrder();
 		//adminLogin();
 		//findRecord();
+		listingTest();
 		
 		
 	}
@@ -82,19 +83,19 @@ public class TestMain {
 	    
 	    RecordController recordController = new RecordController();
 	    SingerController singerController = new SingerController();
-	    list = recordController.listBySalesCount();
+	 //   list = recordController.listBySalesCount();
 	    
 	    // list.forEach(System.out::println);
 	    
-	    list = recordController.listBySinger(singerController.find(3));
+	//    list = recordController.listBySinger(singerController.find(3));
 	   
 	    // list.forEach(System.out::println);
 	    
-	    list = recordController.listByGenre("POP");
+	  //  list = recordController.listByGenre("POP");
 	    
 	    // list.forEach(System.out::println);
 	    
-	    list = recordController.listDiscountedFifteenAlbum();
+	//    list = recordController.listDiscountedFifteenAlbum();
 	    
 	    // list.forEach(System.out::println);
 	    
