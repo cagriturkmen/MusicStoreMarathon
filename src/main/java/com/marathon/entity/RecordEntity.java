@@ -1,23 +1,17 @@
 package com.marathon.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -33,8 +27,8 @@ public class RecordEntity implements Serializable{
 	private static final long serialVersionUID = 8385918852898974969L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", insertable = false, updatable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private long id;
 
 	@Lob
@@ -61,8 +55,9 @@ public class RecordEntity implements Serializable{
 	@CreationTimestamp
 	private Date date;
 	
-//	@OneToMany(mappedBy="record", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	private List<OrderEntity> orderList = new ArrayList<OrderEntity>();
+	@ManyToOne
+	@JoinColumn(name="invoice_id")
+	private OrderEntity order;
 
 	public RecordEntity() {
 	}

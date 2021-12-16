@@ -4,7 +4,7 @@ package com.marathon.util;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-
+import com.marathon.entity.OrderEntity;
 import com.marathon.entity.RecordEntity;
 import com.marathon.entity.SingerEntity;
 import com.marathon.entity.UserEntity;
@@ -28,6 +28,7 @@ public class HibernateUtil {
 			configuration.addAnnotatedClass(UserEntity.class);
 			configuration.addAnnotatedClass(RecordEntity.class);
 			configuration.addAnnotatedClass(SingerEntity.class);
+			configuration.addAnnotatedClass(OrderEntity.class);
 			
 			SessionFactory factory = configuration.configure("hibernate.cfg.xml").buildSessionFactory();
 			return factory;

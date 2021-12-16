@@ -32,15 +32,20 @@ public class SingerEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="singer_id")
 	private long id;
+	
 	@Column(name="singer_name")
 	private String name;
+	
 	@Column(name="singer_lastname")
 	private String lastname;
+	
 	@Column(name="singer_biography")
 	private String biography;
+	
 	@Temporal(value=TemporalType.TIMESTAMP)
 	@CreationTimestamp
 	private Date date;
+	
 	@Enumerated(EnumType.STRING)
 	private Genre musicType;
 	

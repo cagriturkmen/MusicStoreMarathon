@@ -44,8 +44,8 @@ private String phoneNumber;
 @CreationTimestamp
 private Date date;
 
-//@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//private List<OrderEntity> orderList = new ArrayList<OrderEntity>();
+@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+private List<OrderEntity> orderList;
 
 
 public UserEntity() {

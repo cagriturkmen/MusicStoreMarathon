@@ -2,13 +2,17 @@ package com.marathon.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,9 +33,10 @@ public class OrderEntity implements Serializable {
 	@JoinColumn(name = "user_id")
 	private UserEntity user;
 	
-	@ManyToOne
-	@JoinColumn(name = "record_id")
-	private RecordEntity record;
+	@OneToMany(mappedBy="order", fetch = FetchType.LAZY)
+	private List<RecordEntity> recordList;
+	
+	//private RecordEntity record;
 	
 	private int count;
 	
@@ -41,13 +46,19 @@ public class OrderEntity implements Serializable {
 	@CreationTimestamp
 	private Date creation_date;
 	
-	public OrderEntity(int count) {
-		super();
-		
-		this.count = count;
+	
+	public OrderEntity() {
 		
 	}
-	
+
+	public OrderEntity(List<RecordEntity> recordList, double orderPrice) {
+		super();
+		this.recordList = recordList;
+		this.orderPrice = orderPrice;
+	}
+
+
+
 	public long getInvoice_id() {
 		return invoice_id;
 	}
@@ -64,15 +75,22 @@ public class OrderEntity implements Serializable {
 		this.user = user;
 	}
 	
-	public RecordEntity getAlbum() {
-		return record;
+	public List<RecordEntity> getRecordList() {
+		return recordList;
 	}
-	
-	public void setAlbum(RecordEntity record) {
-		this.record = record;
-		
+
+	public void setRecordList(List<RecordEntity> recordList) {
+		this.recordList = recordList;
 	}
-	
+
+	public double getOrderPrice() {
+		return orderPrice;
+	}
+
+	public void setOrderPrice(double orderPrice) {
+		this.orderPrice = orderPrice;
+	}
+
 	public int getCount() {
 		return count;
 	}

@@ -5,11 +5,15 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import org.apache.log4j.chainsaw.Main;
+
 import com.marathon.controller.AdminController;
+import com.marathon.controller.OrderController;
 import com.marathon.controller.RecordController;
 import com.marathon.controller.SingerController;
 import com.marathon.controller.UserController;
 import com.marathon.entity.AdminEntity;
+import com.marathon.entity.OrderEntity;
 import com.marathon.entity.RecordEntity;
 import com.marathon.entity.SingerEntity;
 import com.marathon.entity.UserEntity;
@@ -19,9 +23,10 @@ import com.marathon.types.Types;
 public class TestMain {
 	public static void main(String[] args) throws IOException {
 		
-		
+		MainMethods mainMethods = new MainMethods();
 		//createUserandLogin();
-		createSingerandRecord();
+		//createSingerandRecord();
+		mainMethods.createOrder();
 		//adminLogin();
 		//findRecord();
 		
