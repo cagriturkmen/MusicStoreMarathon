@@ -64,6 +64,8 @@ public class RecordController implements IDataBaseCrud<RecordEntity> , Serializa
 	    }
 	    return null;
 	  }
+		
+	
 	
 	  public List<RecordEntity> listLastTenRecord() {
 	    Session session = databaseConnectionHibernate();
@@ -81,7 +83,7 @@ public class RecordController implements IDataBaseCrud<RecordEntity> , Serializa
 	    Session session = databaseConnectionHibernate();
 
 	    String hql =
-	        "select str from RecordEntity as str ";
+	        "select str from RecordEntity as str  ";
 	    TypedQuery<RecordEntity> typedQuery = session.createQuery(hql, RecordEntity.class);
 	    typedQuery.setMaxResults(15);
 	    ArrayList<RecordEntity> arrayList = (ArrayList<RecordEntity>) typedQuery.getResultList();

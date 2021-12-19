@@ -29,7 +29,7 @@ public class TestMain {
 		//mainMethods.createOrder();
 		//adminLogin();
 		//findRecord();
-		listingTest();
+		//listingTest();
 		
 		
 	}
@@ -37,7 +37,7 @@ public class TestMain {
 		AdminController adminController = new AdminController();
 		adminController.adminLogin(new AdminEntity("admin","qwerty")); 
 		
-		adminController.createUser("Çağrı1","12345");
+		//adminController.createUser("Çağrı1","12345");
 	}
 	public static void createUserandLogin() {
 		UserController userController = new UserController();
@@ -74,7 +74,7 @@ public class TestMain {
 		//List<RecordEntity> recordList = null;
 		RecordController recordController = new RecordController();
 	    //SingerController singerController = new SingerController();
-	    System.out.println(recordController.find(1L));
+	    System.out.println(recordController.find(9L));
 	    
 	    
 	}

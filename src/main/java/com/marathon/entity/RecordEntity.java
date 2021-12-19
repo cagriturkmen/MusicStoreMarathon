@@ -120,6 +120,23 @@ public class RecordEntity implements Serializable{
 	public void setType(Types type) {
 		this.type = type;
 	}
+	
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public OrderEntity getOrder() {
+		return order;
+	}
+
+	public void setOrder(OrderEntity order) {
+		this.order = order;
+	}
 
 	@Override
 	public String toString() {
